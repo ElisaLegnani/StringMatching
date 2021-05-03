@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-  string filename_in; //ATTENZIONE: inserire files di testo senza caratteri strani
+  string filename_in; //ATTENZIONE: inserire files di testo senza caratteri strani - risolvere
   string p; // c'è modo più conveniente di leggere da file? senza convertire string --> char*
   string t;
   const char* pattern;
@@ -31,8 +31,11 @@ int main(int argc, char *argv[]) {
   cout << "NAIVE:" << endl;
   naive(text, pattern);
 
-  cout << "FINITE AUTOMATON:" << endl;
+  cout << endl << "FINITE AUTOMATON:" << endl;
   finite_automaton(text, pattern);
+
+  cout << endl << "KMP:" << endl;
+  kmp(text, pattern);
 
   // stampare tempi
 
