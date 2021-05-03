@@ -1,11 +1,12 @@
 #include "algos.h"
 #include <cmath>
 
-void naive(const char* T, const char* P) {
+void naive(const char* T, const char* P, int S[]) {
 
   int n = strlen(T);
   int m = strlen(P);
   int s{};
+  int k{};
 
   for (int i{}; i < n - m + 1; ++i) {
     for (int j{}; j < m; ++j) {
@@ -17,7 +18,9 @@ void naive(const char* T, const char* P) {
       }
     }
     if (s != 0) {
-      cout << "P found with shift " << s - 1 << endl;
+      //cout << "P found with shift " << s - 1 << endl;
+      S[k] = s-1;
+      k = k+1;
     }
   }
 }
@@ -51,11 +54,12 @@ void transition(const char* P, int m, int delta[][tot_chars]) {
   }
 }
 
-void finite_automaton(const char* T, const char* P) {
+void finite_automaton(const char* T, const char* P, int S[]) {
 
   int n = strlen(T);
   int m = strlen(P);
   int q{};
+  int k{};
 
   int delta[m + 1][tot_chars];
   transition(P, m, delta);
@@ -63,7 +67,9 @@ void finite_automaton(const char* T, const char* P) {
   for (int i = 1; i < n; ++i) {
     q = delta[q][T[i]];
     if (q == m) {
-      cout << "P found with shift " << i - m << endl;
+      //cout << "P found with shift " << i - m << endl;
+      S[k] = i - m;
+      k = k+1;
     }
   }
 }
@@ -84,11 +90,12 @@ void prefix(const char* P, int m, int pi[]) {
   }
 }
 
-void kmp(const char* T, const char* P) {
+void kmp(const char* T, const char* P, int S[]) {
 
   int n = strlen(T);
   int m = strlen(P);
   int q{};
+  int k{};
 
   int pi[m];
   prefix(P, m, pi);
@@ -101,8 +108,10 @@ void kmp(const char* T, const char* P) {
       q=q+1;
     }
     if (q == m) {
-      cout << "P found with shift " << i - m << endl;
+      //cout << "P found with shift " << i - m << endl;
       q = pi[q-1];
+      S[k] = i - m;
+      k = k+1;
     }
   }
 }
