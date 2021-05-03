@@ -6,9 +6,8 @@ inline string filename_in;
 inline string pattern;
 inline string algorithm;
 
-inline string text;
-inline const char* P;
-inline const char* T;
+inline const char *P;
+inline char *T;
 
 inline int shifts[100];
 inline double dt;

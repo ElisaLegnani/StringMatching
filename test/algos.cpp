@@ -1,22 +1,22 @@
 #include "algos.h"
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
 
-  //AGGIUNGERE test per: calc_nextstate, transition, prefix
+  // AGGIUNGERE test per: calc_nextstate, transition, prefix
 
-  const char* text = "abacaa cba";
-  const char* pattern = "ba";
+  char *text = "abacaa cba";
+  const char *pattern = "ba";
   int shifts[10];
-  
+
   // naive
 
   naive(text, pattern, shifts);
 
-  if(shifts[0]!=0 || shifts[1]!=7){
+  if (shifts[0] != 0 || shifts[1] != 7) {
     cout << "Error: naive algorithm not working properly." << endl;
     abort();
   }
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
   automaton(text, pattern, shifts);
 
-  if(shifts[0]!=0 || shifts[1]!=7){
+  if (shifts[0] != 0 || shifts[1] != 7) {
     cout << "Error: finite automaton algorithm not working properly." << endl;
     abort();
   }
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
 
   kmp(text, pattern, shifts);
 
-  if(shifts[0]!=0 || shifts[1]!=7){
+  if (shifts[0] != 0 || shifts[1] != 7) {
     cout << "Error: kmp algorithm not working properly." << endl;
     abort();
   }
