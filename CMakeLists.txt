@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(stringmatching
@@ -12,6 +12,7 @@ enable_testing()
 
 add_library(algorithms
     src/algos.cpp
+    src/functions.cpp
     )
 
 target_include_directories(algorithms PUBLIC
@@ -34,3 +35,5 @@ target_link_libraries(algostest PUBLIC algorithms)
 add_test(NAME algostest
     COMMAND algostest 
     )
+
+target_compile_features(stringmatching PUBLIC cxx_std_17)
