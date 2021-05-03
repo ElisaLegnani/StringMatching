@@ -8,7 +8,7 @@ project(stringmatching
     LANGUAGES CXX
     )
     
-#enable_testing()
+enable_testing()
 
 add_library(algorithms
     src/algos.cpp
@@ -25,12 +25,12 @@ add_executable(stringmatching
 
 target_link_libraries(stringmatching PUBLIC algorithms)
 
-#add_executable(colortest
-#    test/colors.cpp
-#    )
+add_executable(algostest
+    test/algos.cpp
+    )
 
-#target_link_libraries(colortest PUBLIC trace)
+target_link_libraries(algostest PUBLIC algorithms)
 
-#add_test(NAME colortest
-#    COMMAND colortest 
-#    )
+add_test(NAME algostest
+    COMMAND algostest 
+    )
