@@ -3,7 +3,7 @@ A simple program implementing different string-matching algorithms written in C+
 
 ## Installation
 
-A C++ compiler is needed (C++11 or higher).
+A C++ compiler is needed (C++17 or higher).
 You also have to install the following dependencies:
 - [Cmake](https://cmake.org/) (version 3.12 or higher).
 
