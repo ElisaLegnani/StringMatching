@@ -18,7 +18,6 @@ void naive(const char* T, const char* P, int S[]) {
       }
     }
     if (s != 0) {
-      //cout << "P found with shift " << s - 1 << endl;
       S[k] = s-1;
       k = k+1;
     }
@@ -54,7 +53,7 @@ void transition(const char* P, int m, int delta[][tot_chars]) {
   }
 }
 
-void finite_automaton(const char* T, const char* P, int S[]) {
+void automaton(const char* T, const char* P, int S[]) {
 
   int n = strlen(T);
   int m = strlen(P);
@@ -67,7 +66,6 @@ void finite_automaton(const char* T, const char* P, int S[]) {
   for (int i = 1; i < n; ++i) {
     q = delta[q][T[i]];
     if (q == m) {
-      //cout << "P found with shift " << i - m << endl;
       S[k] = i - m;
       k = k+1;
     }
@@ -108,7 +106,6 @@ void kmp(const char* T, const char* P, int S[]) {
       q=q+1;
     }
     if (q == m) {
-      //cout << "P found with shift " << i - m << endl;
       q = pi[q-1];
       S[k] = i - m;
       k = k+1;

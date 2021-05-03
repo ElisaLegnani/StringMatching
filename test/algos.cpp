@@ -21,12 +21,12 @@ int main(int argc, char *argv[]) {
     abort();
   }
 
-  // finite_automaton
+  // automaton
 
-  finite_automaton(text, pattern, shifts);
+  automaton(text, pattern, shifts);
 
   if(shifts[0]!=0 || shifts[1]!=7){
-    cout << "Error: finite_automaton algorithm not working properly." << endl;
+    cout << "Error: finite automaton algorithm not working properly." << endl;
     abort();
   }
 
