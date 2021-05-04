@@ -13,28 +13,28 @@ You need to install:
 ### Download and build
 
 Clone and compile this repository in your directory with the commands: 
-'''sh
+```sh
 $ git clone https://github.com/ElisaLegnani/StringMatching.git
 $ cd StringMatching
 $ mkdir build
 $ cd build
 $ cmake ..
 $ make
-'''
+```
 
-Executables files can be found in the 'build' directory.
+Executables files can be found in the `build` directory.
 
-For testing, run in the 'build' directory:
+For testing, run in the `build` directory:
 
-'''sh
+```sh
 $ ctest
-'''
+```
 
 ## Usage
 
-'''sh
+```sh
 $ ./stringmatching textfile pattern algorithm
-'''
+```
 
 ### Examples
 
