@@ -1,16 +1,18 @@
 #include "functions.h"
 #include <fstream>
 
-void input(void) {
+void init(void) {
 
-  ifstream read;
+
+  //Read da input.dat
+  /*ifstream read;
   read.open("input.dat");
 
   read >> filename_in;
   read >> pattern;
   read >> algorithm;
 
-  read.close();
+  read.close();*/
 
   cout << endl << "***** String-matching *****" << endl;
   cout << "Reading text file '" << filename_in << "'" << endl;
@@ -24,23 +26,31 @@ void input(void) {
   P = pattern.c_str(); // invece: usare direttamente char* e leggere anche più
                        // di una parola? (fino a \n)
 
-  ifstream stream(filename_in);
-  stream.seekg(0, stream.end);
-  int length = stream.tellg();
-  stream.seekg(0, stream.beg);
+  ifstream read(filename_in);
+  if(read.is_open()){
 
-  T = new char[length];
-  stream.read(T, length);
+    read.seekg(0, read.end);
+    int length = read.tellg();
+    read.seekg(0, read.beg);
+
+    T = new char[length];
+    read.read(T, length);
+    
+    read.close();
+
+  } else{
+    cerr << "Error: unable to open text file." << endl;
+    abort();
+  }
 }
 
 void print(void) {
 
-  filename_out = "sm_" + algorithm + "_" + filename_in + "_" + pattern + ".dat";
+  filename_out = "sm_" + filename_in + "_" + pattern + "_" + algorithm + ".dat";
 
   cout << "Printing shifts to file " << filename_out << endl << endl;
 
-  ofstream print;
-  print.open(filename_out);
+  ofstream print(filename_out);
 
   print << dt;
 

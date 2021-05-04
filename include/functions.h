@@ -14,5 +14,5 @@ inline double dt;
 
 inline string filename_out;
 
-void input(void);
+void init(void);
 void print(void);

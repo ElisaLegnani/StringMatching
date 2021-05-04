@@ -5,7 +5,21 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-  input();
+  //Read from command line
+  if (argv[1] == NULL) {
+    cout << "Insert text filename: ";
+    cin >> filename_in;
+    cout << "Insert pattern to search in text: ";
+    cin >> pattern;
+    cout << "Insert string-matching algorithm (naive, automaton, kmp): ";
+    cin >> algorithm;
+  } else {
+    filename_in = argv[1];
+    pattern = argv[2];
+    algorithm = argv[3];
+  }
+
+  init();
 
   clock_t ti;
 
@@ -20,6 +34,10 @@ int main(int argc, char *argv[]) {
   } else if(algorithm=="kmp"){
     ti = clock();
     kmp(T, P, shifts);
+  
+  } else{
+    cerr << "Error: wrong algorithm name." << endl; 
+    return 0;
   }
 
   clock_t tf = clock();
