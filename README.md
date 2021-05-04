@@ -12,10 +12,15 @@ You need to install:
 
 ### Download and build
 
-Clone and compile this repository in your directory with the commands: 
+Clone this repository in your directory with the commands: 
 ```sh
 $ git clone https://github.com/ElisaLegnani/StringMatching.git
 $ cd StringMatching
+```
+
+Compile:
+
+```sh
 $ mkdir build
 $ cd build
 $ cmake ..
