@@ -38,7 +38,7 @@ void init(void) {
     
     read.close();
 
-  } else{
+  } else {
     cerr << "Error: unable to open text file." << endl;
     abort();
   }
@@ -55,10 +55,10 @@ void print(void) {
   print << dt;
 
   int i{};
-  do {
+  while (shifts[i] != NULL){
     print << endl << i << " " << shifts[i];
     i++;
-  } while (shifts[i] != 0);
+  } 
 
   print.close();
 }

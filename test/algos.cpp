@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 
   naive(text, pattern, shifts);
 
-  if (shifts[0] != 0 || shifts[1] != 7) {
+  if (shifts[0] != 1 || shifts[1] != 8) {
     cout << "Error: naive algorithm not working properly." << endl;
     abort();
   }
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
   automaton(text, pattern, shifts);
 
-  if (shifts[0] != 0 || shifts[1] != 7) {
+  if (shifts[0] != 1 || shifts[1] != 8) {
     cout << "Error: finite automaton algorithm not working properly." << endl;
     abort();
   }
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
 
   kmp(text, pattern, shifts);
 
-  if (shifts[0] != 0 || shifts[1] != 7) {
+  if (shifts[0] != 1 || shifts[1] != 8) {
     cout << "Error: kmp algorithm not working properly." << endl;
     abort();
   }

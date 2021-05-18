@@ -13,12 +13,12 @@ void naive(char *T, const char *P, int S[]) {
       if (T[i + j] == P[j]) {
         s = i;
       } else {
-        s = 0;
+        s = -1;
         break;
       }
     }
-    if (s != 0) {
-      S[k] = s - 1;
+    if (s != -1) {
+      S[k] = s;
       k = k + 1;
     }
   }
@@ -61,10 +61,10 @@ void automaton(char *T, const char *P, int S[]) {
   int delta[m + 1][tot_chars];
   transition(P, m, delta);
 
-  for (int i = 1; i < n; ++i) {
+  for (int i{}; i < n; ++i) {
     q = delta[q][T[i]];
     if (q == m) {
-      S[k] = i - m;
+      S[k] = i - m + 1;
       k = k + 1;
     }
   }
@@ -94,7 +94,7 @@ void kmp(char *T, const char *P, int S[]) {
   int pi[m];
   prefix(P, m, pi);
 
-  for (int i = 1; i < n; ++i) {
+  for (int i{}; i < n; ++i) {
     while (q > 0 && P[q] != T[i]) {
       q = pi[q - 1];
     }
@@ -103,7 +103,7 @@ void kmp(char *T, const char *P, int S[]) {
     }
     if (q == m) {
       q = pi[q - 1];
-      S[k] = i - m;
+      S[k] = i - m + 1;
       k = k + 1;
     }
   }
