@@ -37,13 +37,18 @@ $ ctest
 
 ## Usage
 
+The program implements three different string-matching algorithms for searching a word in a text: the naive algorithm, string-matching with a finite automaton and the Knuth-Morris-Pratt algorithm.
+
+The program reads as input a text filename, a word/pattern, the name of one of the three algorithms (naive, automaton, kmp) and an output filename:
+
 ```sh
-$ ./stringmatching textfile pattern algorithm
+$ ./stringmatching text_filename pattern algorithm output_filename
 ```
 
-### Examples
+It reads the text file and searches for pattern matches in it with the algorithm given as input. 
+It prints the running time and a list of all shifts at which the pattern is found in the text in the output file.
 
-Coming soon!
+The script `stringmatching.sh` is useful for comparing running times of the different algorithms on the same search.
 
 ## License
 
