@@ -24,18 +24,18 @@ void naive(char *T, const char *P, int S[]) {
   }
 }
 
-int calc_nextstate(const char *P, int m, int q, int i) {
+int nextstate(const char *P, int m, int q, int i) {
   if (q < m && i == P[q]) {
     return q + 1;
   }
-  for (int ns = q; ns > 0; ns--) {
-    if (P[ns - 1] == i) {
-      for (int j{}; j < ns - 1; ++j) {
-        if (P[i] != P[q - ns + 1 + j]) {
+  for (int k = q; k > 0; k--) {
+    if (P[k - 1] == i) {
+      for (int j{}; j < k - 1; ++j) {
+        if (P[i] != P[q - k + 1 + j]) {
           break;
         }
-        if (j == ns - 1) {
-          return ns;
+        if (j == k - 1) {
+          return k;
         }
       }
     }
@@ -46,7 +46,7 @@ int calc_nextstate(const char *P, int m, int q, int i) {
 void transition(const char *P, int m, int delta[][tot_chars]) {
   for (int q{}; q < m; ++q) {
     for (int i{}; i < tot_chars; ++i) {
-      delta[q][i] = calc_nextstate(P, m, q, i);
+      delta[q][i] = nextstate(P, m, q, i);
     }
   }
 }

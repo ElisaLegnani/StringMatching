@@ -6,9 +6,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-  // AGGIUNGERE test per: calc_nextstate, transition, prefix
-
-  char *text = "abacaa cba";
+  char *text = "baabacaa cba";
   const char *pattern = "ba";
   int shifts[10];
 
@@ -16,7 +14,7 @@ int main(int argc, char *argv[]) {
 
   naive(text, pattern, shifts);
 
-  if (shifts[0] != 1 || shifts[1] != 8) {
+  if (shifts[0] != 0 || shifts[1] != 3 || shifts[2] != 10) {
     cout << "Error: naive algorithm not working properly." << endl;
     abort();
   }
@@ -25,7 +23,7 @@ int main(int argc, char *argv[]) {
 
   automaton(text, pattern, shifts);
 
-  if (shifts[0] != 1 || shifts[1] != 8) {
+  if (shifts[0] != 0 || shifts[1] != 3 || shifts[2] != 10) {
     cout << "Error: finite automaton algorithm not working properly." << endl;
     abort();
   }
@@ -34,7 +32,7 @@ int main(int argc, char *argv[]) {
 
   kmp(text, pattern, shifts);
 
-  if (shifts[0] != 1 || shifts[1] != 8) {
+  if (shifts[0] != 0 || shifts[1] != 3 || shifts[2] != 10) {
     cout << "Error: kmp algorithm not working properly." << endl;
     abort();
   }

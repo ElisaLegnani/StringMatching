@@ -1,10 +1,10 @@
 #include <string.h>
 
-#define tot_chars 10000 // ATTENZIONE: aumentare se il testo è lungo?
+#define tot_chars 10000
 
 void naive(char *, const char *, int[]);
 
-int calc_nextstate(const char *, int, int, int);
+int nextstate(const char *, int, int, int);
 void transition(const char *, int, int[][tot_chars]);
 void automaton(char *, const char *, int[]);
 

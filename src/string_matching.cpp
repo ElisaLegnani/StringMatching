@@ -5,7 +5,6 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-  //Read from command line
   if (argv[1] == NULL) {
     cout << "Insert text filename: ";
     cin >> filename_in;
@@ -13,10 +12,13 @@ int main(int argc, char *argv[]) {
     cin >> pattern;
     cout << "Insert string-matching algorithm (naive, automaton, kmp): ";
     cin >> algorithm;
+    cout << "Insert output filename: ";
+    cin >> filename_out;
   } else {
     filename_in = argv[1];
     pattern = argv[2];
     algorithm = argv[3];
+    filename_out = argv[4];
   }
 
   init();

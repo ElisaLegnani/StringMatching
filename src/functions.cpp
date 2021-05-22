@@ -3,24 +3,13 @@
 
 void init(void) {
 
-
-  //Read da input.dat
-  /*ifstream read;
-  read.open("input.dat");
-
-  read >> filename_in;
-  read >> pattern;
-  read >> algorithm;
-
-  read.close();*/
-
   cout << endl << "***** String-matching *****" << endl;
   cout << "Reading text file '" << filename_in << "'" << endl;
   cout << "and searching for pattern '" << pattern << "' matches" << endl;
   cout << "with " << algorithm << " algorithm" << endl << endl;
 
-  for (int s{}; s < 100; ++s) {
-    shifts[s] = 0;
+  for (int s{}; s < 1000; ++s) {
+    shifts[s] = -1;
   }
 
   P = pattern.c_str(); // invece: usare direttamente char* e leggere anche più
@@ -46,19 +35,16 @@ void init(void) {
 
 void print(void) {
 
-  filename_out = "sm_" + filename_in + "_" + pattern + "_" + algorithm + ".dat";
-
   cout << "Printing shifts to file " << filename_out << endl << endl;
-
   ofstream print(filename_out);
 
   print << dt;
 
   int i{};
-  while (shifts[i] != NULL){
+  while (shifts[i] != -1){
     print << endl << i << " " << shifts[i];
     i++;
-  } 
+  }
 
   print.close();
 }
