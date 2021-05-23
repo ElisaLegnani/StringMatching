@@ -1,10 +1,13 @@
+#include <iostream>
 #include <string.h>
 
-#define tot_chars 10000
+using namespace std;
+
+#define tot_chars 4
+inline string A = "acgt";
 
 void naive(char *, const char *, int[]);
 
-int nextstate(const char *, int, int, int);
 void transition(const char *, int, int[][tot_chars]);
 void automaton(char *, const char *, int[]);
 

@@ -9,7 +9,7 @@ inline string algorithm;
 inline const char *P;
 inline char *T;
 
-inline int shifts[1000];
+inline int shifts[100000];
 inline double dt;
 
 inline string filename_out;

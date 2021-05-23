@@ -25,25 +25,25 @@ int main(int argc, char *argv[]) {
 
   clock_t ti;
 
-  if(algorithm=="naive"){
+  if (algorithm == "naive") {
     ti = clock();
     naive(T, P, shifts);
 
-  } else if(algorithm=="automaton"){
+  } else if (algorithm == "automaton") {
     ti = clock();
     automaton(T, P, shifts);
 
-  } else if(algorithm=="kmp"){
+  } else if (algorithm == "kmp") {
     ti = clock();
     kmp(T, P, shifts);
-  
-  } else{
-    cerr << "Error: wrong algorithm name." << endl; 
+
+  } else {
+    cerr << "Error: wrong algorithm name." << endl;
     return 0;
   }
 
   clock_t tf = clock();
-  dt = double(tf-ti)*1000 /CLOCKS_PER_SEC;
+  dt = double(tf - ti) * 1000 / CLOCKS_PER_SEC;
 
   print();
 

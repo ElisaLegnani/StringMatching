@@ -8,15 +8,19 @@ void init(void) {
   cout << "and searching for pattern '" << pattern << "' matches" << endl;
   cout << "with " << algorithm << " algorithm" << endl << endl;
 
-  for (int s{}; s < 1000; ++s) {
+  if (algorithm == "automaton") {
+    cout << "NOTE: automaton algorithm is built for pattern searches in genetic code," << endl;
+    cout << "thus it works with the finite alphabet 'a', 'c', 'g', 't'." << endl << endl;
+  }
+
+  for (int s{}; s < 100000; ++s) {
     shifts[s] = -1;
   }
 
-  P = pattern.c_str(); // invece: usare direttamente char* e leggere anche più
-                       // di una parola? (fino a \n)
+  P = pattern.c_str();
 
   ifstream read(filename_in);
-  if(read.is_open()){
+  if (read.is_open()) {
 
     read.seekg(0, read.end);
     int length = read.tellg();
@@ -24,7 +28,7 @@ void init(void) {
 
     T = new char[length];
     read.read(T, length);
-    
+
     read.close();
 
   } else {
@@ -37,14 +41,20 @@ void print(void) {
 
   cout << "Printing shifts to file " << filename_out << endl << endl;
   ofstream print(filename_out);
+  if (print.is_open()) {
 
-  print << dt;
+    print << dt;
 
-  int i{};
-  while (shifts[i] != -1){
-    print << endl << i << " " << shifts[i];
-    i++;
-  }
+    int i{};
+    while (shifts[i] != -1) {
+      print << endl << i << " " << shifts[i];
+      i++;
+    }
 
   print.close();
+
+  } else {
+    cerr << "Error: unable to open output file." << endl;
+    abort();
+  }
 }
