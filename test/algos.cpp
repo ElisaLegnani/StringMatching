@@ -8,13 +8,9 @@ int main(int argc, char *argv[]) {
 
   char *text = "ggaagggacaacggagga";
   const char *pattern = "gga";
-  int shifts[4];
+  vector<int> shifts;
 
-  // naive
-
-  for (int s{}; s < 4; ++s) {
-    shifts[s] = 0;
-  }
+  // Naive
 
   naive(text, pattern, shifts);
 
@@ -23,11 +19,9 @@ int main(int argc, char *argv[]) {
     abort();
   }
 
-  // automaton
+  shifts.clear();
 
-  for (int s{}; s < 5; ++s) {
-    shifts[s] = 0;
-  }
+  // Automaton
 
   automaton(text, pattern, shifts);
 
@@ -36,11 +30,9 @@ int main(int argc, char *argv[]) {
     abort();
   }
 
-  // KMP
+  shifts.clear();
 
-  for (int s{}; s < 5; ++s) {
-    shifts[s] = 0;
-  }
+  // KMP
 
   kmp(text, pattern, shifts);
 

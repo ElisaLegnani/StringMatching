@@ -1,12 +1,11 @@
 #include "algos.h"
 #include <cmath>
 
-void naive(char *T, const char *P, int S[]) {
+void naive(char *T, const char *P, vector<int> &S) {
 
   int n = strlen(T);
   int m = strlen(P);
   int s{};
-  int k{};
 
   for (int i{}; i < n - m + 1; ++i) {
 
@@ -19,8 +18,7 @@ void naive(char *T, const char *P, int S[]) {
       }
     }
     if (s != -1) {
-      S[k] = s;
-      k = k + 1;
+      S.push_back(s);
     }
   }
 }
@@ -50,12 +48,11 @@ void transition(const char *P, int m, int delta[][tot_chars]) { // scrivere megl
   }
 }
 
-void automaton(char *T, const char *P, int S[]) {
+void automaton(char *T, const char *P, vector<int> &S) {
 
   int n = strlen(T);
   int m = strlen(P);
   int q{};
-  int k{};
 
   int delta[m + 1][tot_chars];
   transition(P, m, delta);
@@ -64,8 +61,7 @@ void automaton(char *T, const char *P, int S[]) {
     int a = A.find(T[i]);
     q = delta[q][a];
     if (q == m) {
-      S[k] = i - m + 1;
-      k = k + 1;
+      S.push_back(i - m + 1);
     }
   }
 }
@@ -86,12 +82,11 @@ void prefix(const char *P, int m, int pi[]) {
   }
 }
 
-void kmp(char *T, const char *P, int S[]) {
+void kmp(char *T, const char *P, vector<int> &S) {
 
   int n = strlen(T);
   int m = strlen(P);
   int q{};
-  int k{};
 
   int pi[m];
   prefix(P, m, pi);
@@ -105,8 +100,7 @@ void kmp(char *T, const char *P, int S[]) {
     }
     if (q == m) {
       q = pi[q - 1];
-      S[k] = i - m + 1;
-      k = k + 1;
+      S.push_back(i - m + 1);
     }
   }
 }

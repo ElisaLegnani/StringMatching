@@ -13,10 +13,6 @@ void init(void) {
     cout << "thus it works with the finite alphabet 'a', 'c', 'g', 't'." << endl << endl;
   }
 
-  for (int s{}; s < 100000; ++s) {
-    shifts[s] = -1;
-  }
-
   P = pattern.c_str();
 
   ifstream read(filename_in);
@@ -39,16 +35,16 @@ void init(void) {
 
 void print(void) {
 
+  delete[] T;
+
   cout << "Printing shifts to file " << filename_out << endl << endl;
+
   ofstream print(filename_out);
   if (print.is_open()) {
 
     print << dt;
-
-    int i{};
-    while (shifts[i] != -1) {
+    for (int i{}; i<shifts.size(); ++i){
       print << endl << i << " " << shifts[i];
-      i++;
     }
 
   print.close();
