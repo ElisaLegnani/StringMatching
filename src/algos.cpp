@@ -31,15 +31,16 @@ void transition(const char *P, int m, int delta[][tot_chars]) { // scrivere megl
       do {
         pref = 0;
         k = k - 1;
-        if (P[k - 1] == A[i] && k == 1)
-          pref = 1;
-        else if (P[k - 1] == A[i]) {
-          for (int j = 1; j < k; ++j) {
-            if (P[k - j - 1] != P[q - j]) {
-              pref = 0;
-              break;
-            } else
-              pref = 1;
+        if (P[k - 1] == A[i]){
+          if (k == 1) pref = 1;
+          else {
+            for (int j = 1; j < k; ++j) {
+              if (P[k - j - 1] != P[q - j]) {
+                pref = 0;
+                break;
+              } else
+                pref = 1;
+            }
           }
         }
       } while (pref == 0 && k > 0);
