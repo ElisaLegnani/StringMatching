@@ -8,7 +8,6 @@ void naive(char *T, const char *P, vector<int> &S) {
   int s{};
 
   for (int i{}; i < n - m + 1; ++i) {
-
     for (int j{}; j < m; ++j) {
       if (T[i + j] == P[j]) {
         s = i;
@@ -23,7 +22,7 @@ void naive(char *T, const char *P, vector<int> &S) {
   }
 }
 
-void transition(const char *P, int m, int delta[][tot_chars]) { // scrivere meglio?
+void transition(const char *P, int m, int delta[][tot_chars]) {
   for (int q{}; q <= m; ++q) {
     for (int i{}; i < tot_chars; ++i) {
       int k = min(m + 1, q + 2);
@@ -31,15 +30,14 @@ void transition(const char *P, int m, int delta[][tot_chars]) { // scrivere megl
       do {
         pref = 0;
         k = k - 1;
-        if (P[k - 1] == A[i]){
+        if (P[k - 1] == A[i]) {
           if (k == 1) pref = 1;
           else {
             for (int j = 1; j < k; ++j) {
               if (P[k - j - 1] != P[q - j]) {
                 pref = 0;
                 break;
-              } else
-                pref = 1;
+              } else pref = 1;
             }
           }
         }
