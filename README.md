@@ -59,7 +59,6 @@ The script `stringmatching.sh` is useful for comparing running times of the diff
 ### Example
 
 In the `examples` directory you can find a sample input text file applied to genetics and some output files of different pattern searches in the text.
---> coming soon!
 
 ## License
 
