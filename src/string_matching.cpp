@@ -23,8 +23,6 @@ int main(int argc, char *argv[]) {
 
   init();
 
-  clock_t ti;
-
   if (algorithm == "naive") {
     ti = clock();
     naive(T, P, shifts);
@@ -42,7 +40,7 @@ int main(int argc, char *argv[]) {
     return 0;
   }
 
-  clock_t tf = clock();
+  tf = clock();
   dt = double(tf - ti) * 1000 / CLOCKS_PER_SEC;
 
   print();
