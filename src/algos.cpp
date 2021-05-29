@@ -55,10 +55,19 @@ void automaton(char *T, const char *P, vector<int> &S) {
 
   int delta[m + 1][tot_chars];
   transition(P, m, delta);
+  int a{};
 
   for (int i{}; i < n; ++i) {
-    int a = A.find(T[i]);
+
+    for (int j{}; j < tot_chars; ++j){
+      if (T[i]==A[j]){
+        a=j;
+        break;
+      }
+    }
+
     q = delta[q][a];
+
     if (q == m) {
       S.push_back(i - m + 1);
     }

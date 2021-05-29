@@ -5,7 +5,7 @@
 using namespace std;
 
 #define tot_chars 4
-inline string A = "acgt";
+inline const char *A = "acgt";
 
 void naive(char *, const char *, vector<int>&);
 
