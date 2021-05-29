@@ -43,14 +43,17 @@ The program reads as input:
 - a text filename;
 - a pattern;
 - the name of one of the three algorithms (naive, automaton, kmp);
-- an output filename;
+- an output filename.
 
 ```sh
 $ ./stringmatching text_filename pattern algorithm output_filename
 ```
 
 It reads the text file and searches for pattern matches in it with the algorithm given as input.
-It prints the running time and a list of all shifts at which the pattern is found in the text in the output file.
+It prints in the output file:
+- the running time;
+- the total number of times the pattern is found in the text;
+- a list of all shifts at which the pattern is found in the text.
 
 **Note**: for comparison reasons, the automaton algorithm is implemented for pattern searches in a genetic code, thus it works with the finite alphabet *a*, *c*, *g*, *t*. The other algorithms can be used on any text and pattern.
 
