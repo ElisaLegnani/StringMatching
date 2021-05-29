@@ -43,6 +43,7 @@ void print(void) {
   if (print.is_open()) {
 
     print << dt;
+    print << shifts.size();
     for (int i{}; i<shifts.size(); ++i){
       print << endl << i << " " << shifts[i];
     }
