@@ -42,10 +42,10 @@ void print(void) {
   ofstream print(filename_out);
   if (print.is_open()) {
 
-    print << dt;
-    print << shifts.size();
+    print << dt << endl;
+    print << shifts.size() << endl;
     for (int i{}; i<shifts.size(); ++i){
-      print << endl << i << " " << shifts[i];
+      print << i << " " << shifts[i] << endl;
     }
 
   print.close();
