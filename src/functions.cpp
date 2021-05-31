@@ -9,8 +9,8 @@ void init(void) {
   cout << "with " << algorithm << " algorithm" << endl << endl;
 
   if (algorithm == "automaton") {
-    cout << "NOTE: automaton algorithm is built for pattern searches in genetic code," << endl;
-    cout << "thus it works with the finite alphabet 'a', 'c', 'g', 't'." << endl << endl;
+    cout << "NOTE: automaton algorithm works with the finite alphabet" 
+    << "of the first 255 ASCII characters." << endl << endl;
   }
 
   P = pattern.c_str();
