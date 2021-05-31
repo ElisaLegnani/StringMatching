@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     cin >> algorithm;
     cout << "Insert output filename: ";
     cin >> filename_out;
+  
   } else {
     filename_in = argv[1];
     pattern = argv[2];
