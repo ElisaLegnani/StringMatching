@@ -9,7 +9,7 @@ void init(void) {
   cout << "with " << algorithm << " algorithm" << endl << endl;
 
   if (algorithm == "automaton") {
-    cout << "NOTE: automaton algorithm works with the finite alphabet" 
+    cout << "NOTE: automaton algorithm works with the finite alphabet " 
     << "of the first 255 ASCII characters." << endl << endl;
   }
 
