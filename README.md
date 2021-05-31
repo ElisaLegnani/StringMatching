@@ -55,7 +55,7 @@ It prints in the output file:
 - the total number of times the pattern is found in the text;
 - a list of all shifts at which the pattern is found in the text.
 
-**Note**: for comparison reasons, the automaton algorithm is implemented for pattern searches in a genetic code, thus it works with the finite alphabet *a*, *c*, *g*, *t*. The other algorithms can be used on any text and pattern.
+**Note**: the automaton algorithm works with the finite alphabet of the first 255 ASCII characters.
 
 The script `stringmatching.sh` is useful for comparing running times of the different algorithms on the same search.
 
