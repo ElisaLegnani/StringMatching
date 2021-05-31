@@ -5,32 +5,30 @@ void naive(char *T, const char *P, vector<int> &S) {
 
   int n = strlen(T);
   int m = strlen(P);
-  int s{};
 
   for (int i{}; i < n - m + 1; ++i) {
-    for (int j{}; j < m; ++j) {
-      if (T[i + j] == P[j]) {
-        s = i;
-      } else {
-        s = -1;
+    int j{};
+    for (j; j < m; ++j) {
+      if (T[i + j] != P[j]) {
         break;
       }
     }
-    if (s != -1) {
-      S.push_back(s);
+    if (j == m) {
+      S.push_back(i);
     }
   }
 }
 
 void transition(const char *P, int m, int delta[][tot_chars]) {
+
   for (int q{}; q <= m; ++q) {
     for (int i{}; i < tot_chars; ++i) {
       int k = min(m + 1, q + 2);
-      int pref = 0;
+      int pref{};
       do {
         pref = 0;
         k = k - 1;
-        if (P[k - 1] == A[i]) {
+        if (P[k - 1] == i) {
           if (k == 1) pref = 1;
           else {
             for (int j = 1; j < k; ++j) {
@@ -55,18 +53,9 @@ void automaton(char *T, const char *P, vector<int> &S) {
 
   int delta[m + 1][tot_chars];
   transition(P, m, delta);
-  int a{};
 
   for (int i{}; i < n; ++i) {
-
-    for (int j{}; j < tot_chars; ++j){
-      if (T[i]==A[j]){
-        a=j;
-        break;
-      }
-    }
-
-    q = delta[q][a];
+    q = delta[q][T[i]];
 
     if (q == m) {
       S.push_back(i - m + 1);
